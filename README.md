@@ -1,4 +1,11 @@
-1. Install dependencies: `pip install torch transformers sentencepiece gradio`
+## .Venv
+
+1. Create .venv: `python3 -m venv .venv` this will be created in the root folder
+2. Activate .venv: `source .venv/bin/activate` in your terminal it should show .venv
+3. Update pip: `python -m pip install --upgrade pip`
+4. Install dependencies: `pip install -r requirements.txt` or `pip install torch transformers sentencepiece gradio` (without specifying a file)
+
+## Dependencies
 
 - `torch`: Engine to execute model
 - `transformers`: Model loader through pipelines 
