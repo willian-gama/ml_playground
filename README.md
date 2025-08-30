@@ -5,6 +5,8 @@
 3. Update pip: `python -m pip install --upgrade pip`
 4. Install dependencies: `pip install -r requirements.txt` or `pip install torch transformers sentencepiece gradio` (without specifying a file)
 
+Ref.: https://gist.github.com/GinoAvanzini/f0ed9c1a74ffce3f832c9fa68f19daba
+
 ## Dependencies
 
 - `torch`: Engine to execute model

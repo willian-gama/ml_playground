@@ -1,4 +1,4 @@
-# Transformers: https://huggingface.co/docs/transformers/main_classes/pipelines?utm_source=chatgpt.com
+# Transformers: https://huggingface.co/docs/transformers/main_classes/pipelines
 from transformers import pipeline
 
 translator = pipeline(
