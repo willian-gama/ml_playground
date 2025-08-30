@@ -3,23 +3,20 @@ from transformers import pipeline
 
 # Models: https://huggingface.co/models?pipeline_tag=text-classification&sort=downloads&search=sentiment
 model = "cardiffnlp/twitter-roberta-base-sentiment-latest"
-classifier = pipeline(
+output = pipeline(
     task="text-classification",
     model=model,
     tokenizer=model
 )
 
-texts = [
-    # English
-    "I love this app!",
-    "This app is great and horrible at the same time",
-    # Portuguese
-    "Eu amo esse app!",
-    "Esse app é ótimo e horrível ao mesmo tempo"
+examples = [
+    "I like this app!",  # Positive
+    "I dislike this app!",  # Neutral
+    "Worst app I have ever used."  # Negative
 ]
 
-for text in texts:
-    result = classifier(text)
-    label = result[0]['label']
-    score = result[0]['score']
+for text in examples:
+    result = output(text)[0]
+    label = result['label']
+    score = result['score']
     print(f"{text} -> {label} ({score:.2f})")

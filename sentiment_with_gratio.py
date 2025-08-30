@@ -3,26 +3,31 @@ from transformers import pipeline
 import gradio as gradio
 
 # Models: https://huggingface.co/models?pipeline_tag=text-classification&sort=downloads&search=sentiment
-model = "cardiffnlp/twitter-roberta-base-sentiment-latest"
-classifier = pipeline(
+model = "cardiffnlp/twitter-roberta-base-sentiment"
+output = pipeline(
     task="text-classification",
     model=model,
     tokenizer=model
 )
 
-# Gradio function
-def classify_text(text):
-    result = classifier(text)[0]
-    label = result['label']
-    score = result['score']
-    return f"{label} ({score:.2f})"
-
+labels_map = {
+    "LABEL_0": "Negative",
+    "LABEL_1": "Neutral",
+    "LABEL_2": "Positive"
+}
 
 examples = [
-    "I like this app!", # Positive
+    "I love this app!", # Positive
     "I dislike this app!", # Neutral
     "Worst app I have ever used." # Negative
 ]
+
+# Gradio function
+def classify_text(text):
+    result = output(text)[0]
+    label = result['label']
+    score = result['score']
+    return f"{label} ({score:.2f})"
 
 # Gradio interface - find all components: https://www.gradio.app/docs/gradio/introduction#events
 gradio_interface = gradio.Interface(

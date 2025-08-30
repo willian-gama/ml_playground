@@ -4,3 +4,5 @@
 .venv
 # Gradio: https://www.gradio.app/guides/flagging
 flagged
+# .env
+.env

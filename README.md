@@ -11,8 +11,18 @@ Ref.: https://gist.github.com/GinoAvanzini/f0ed9c1a74ffce3f832c9fa68f19daba
 
 - `torch`: Engine to execute model
 - `transformers`: Model loader through pipelines stored in `~/.cache/huggingface/hub`
+- `huggingface_hub`: Download models (installed along with `transformers` by default. Run `huggingface-cli login` to set access token stored in `~/.cache/huggingface/token`. To confirm login `hf auth whoami`
 - `sentencepiece`: Tokenizers to convert text into numbers to feed into models 
 - `gradio`: Quickly build a demo or web application for your machine learning model
+
+## Create .env
+
+1. Create a file `.env` in the root directory:
+
+```
+HF_TOKEN=ACCESS_TOKEN # https://huggingface.co/settings/tokens
+```
+ 
 
 ## Known issues:
 
