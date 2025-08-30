@@ -1,4 +1,4 @@
-## .Venv
+## Virtual environment with .Venv
 
 1. Create .venv: `python3 -m venv .venv` this will be created in the root folder
 2. Activate .venv: `source .venv/bin/activate` in your terminal it should show .venv
