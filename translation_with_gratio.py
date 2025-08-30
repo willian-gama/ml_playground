@@ -1,12 +1,10 @@
 import gradio as gradio
 from transformers import M2M100ForConditionalGeneration, M2M100Tokenizer
 
-# Load model and tokenizer
 model_name = "facebook/m2m100_1.2B"
 tokenizer = M2M100Tokenizer.from_pretrained(model_name)
 model = M2M100ForConditionalGeneration.from_pretrained(model_name)
 
-# Translation function
 def translate_text(text, source_lang, target_lang):
     tokenizer.src_lang = source_lang
     inputs = tokenizer(text, return_tensors="pt")
@@ -17,14 +15,12 @@ def translate_text(text, source_lang, target_lang):
     translated_text = tokenizer.decode(translated_tokens[0], skip_special_tokens=True)
     return translated_text
 
-# Examples
 examples = [
     ["Hi, How are you?", "en", "pt"],
     ["Let's have a call", "en", "pt"],
     ["The dinner is ready", "en", "pt"]
 ]
 
-# Gradio interface
 gradio_interface = gradio.Interface(
     fn=translate_text,
     inputs=[
@@ -37,5 +33,4 @@ gradio_interface = gradio.Interface(
     description="Translate text from any language using M2M100",
     examples=examples
 )
-
 gradio_interface.launch()
