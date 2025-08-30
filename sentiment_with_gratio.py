@@ -17,11 +17,11 @@ def classify_text(text):
     score = result['score']
     return f"{label} ({score:.2f})"
 
-# Example texts
+
 examples = [
     "I like this app!", # Positive
     "I dislike this app!", # Neutral
-    "I hate this app!" # Negative
+    "Worst app I have ever used." # Negative
 ]
 
 # Gradio interface - find all components: https://www.gradio.app/docs/gradio/introduction#events
@@ -33,6 +33,4 @@ gradio_interface = gradio.Interface(
     title="Multilingual Sentiment Analyzer",
     description="Enter text and see the sentiment."
 )
-
-# Launch
 gradio_interface.launch()
