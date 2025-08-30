@@ -10,7 +10,7 @@ Ref.: https://gist.github.com/GinoAvanzini/f0ed9c1a74ffce3f832c9fa68f19daba
 ## Dependencies
 
 - `torch`: Engine to execute model
-- `transformers`: Model loader through pipelines 
+- `transformers`: Model loader through pipelines stored in `~/.cache/huggingface/hub`
 - `sentencepiece`: Tokenizers to convert text into numbers to feed into models 
 - `gradio`: Quickly build a demo or web application for your machine learning model
 
