@@ -2,5 +2,5 @@
 .idea
 # Python
 .venv
-# Gradio
+# Gradio: https://www.gradio.app/guides/flagging
 flagged
