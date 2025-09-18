@@ -2,6 +2,7 @@ import gradio
 import soundfile as sf
 import librosa
 from nemo.collections.asr.models import ASRModel
+import os
 
 model = ASRModel.from_pretrained(model_name="nvidia/canary-1b-v2")
 
@@ -14,6 +15,7 @@ def convert_audio_stereo_to_mono(audio_path):
 def transcribe(audio_file):
     processed_file = convert_audio_stereo_to_mono(audio_file)
     result = model.transcribe([processed_file], source_lang="en", target_lang="en")
+    os.remove(processed_file)
     return result[0].text
 
 gradio = gradio.Interface(
