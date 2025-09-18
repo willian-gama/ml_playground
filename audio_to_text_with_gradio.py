@@ -9,8 +9,8 @@ def transcribe(audio_file):
 
 gradio = gradio.Interface(
     fn=transcribe,
-    inputs=gradio.Audio(sources=["upload"], type="filepath"),
-    outputs=gradio.Textbox(label="Transcription"),
+    inputs=gradio.Audio(label="Select an audio", sources=["upload"], type="filepath"),
+    outputs=gradio.Textbox(label="Transcription", lines=3, max_lines=50),
     title="Audio to text",
     description="Transcribe English audio"
 )
