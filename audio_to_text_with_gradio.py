@@ -11,7 +11,6 @@ def convert_audio_stereo_to_mono(audio_path):
     sf.write(temp_file, y, sr)
     return temp_file
 
-# Transcribe function for Gradio
 def transcribe(audio_file):
     processed_file = convert_audio_stereo_to_mono(audio_file)
     result = model.transcribe([processed_file], source_lang="en", target_lang="en")
