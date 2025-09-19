@@ -23,6 +23,7 @@ Ref.: https://gist.github.com/GinoAvanzini/f0ed9c1a74ffce3f832c9fa68f19daba
 HF_TOKEN=ACCESS_TOKEN # https://huggingface.co/settings/tokens
 ```
  
+You can recover it from `os.environ.get("HF_TOKEN")`
 
 ## Known issues:
 
