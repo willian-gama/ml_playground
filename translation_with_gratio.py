@@ -16,7 +16,7 @@ def translate_text(text, source_lang, target_lang):
     return translated_text
 
 examples = [
-    ["Hi, How are you?", "en", "pt"],
+    ["How are you?", "en", "pt"],
     ["Let's have a call", "en", "pt"],
     ["The dinner is ready", "en", "pt"]
 ]
@@ -29,8 +29,8 @@ gradio_interface = gradio.Interface(
         gradio.Textbox(value="pt", label="Target language code (pt)")
     ],
     outputs=gradio.Textbox(label="Translated text"),
-    title="Multilingual Translation",
+    title="Multilingual Translation with Facebook",
     description="Translate text from any language using M2M100",
     examples=examples
 )
-gradio_interface.launch()
+gradio_interface.launch(server_port=7861)

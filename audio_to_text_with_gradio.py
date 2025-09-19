@@ -1,8 +1,9 @@
-import gradio
-import soundfile
-import librosa
-from nemo.collections.asr.models import ASRModel
 import os
+
+import gradio
+import librosa
+import soundfile
+from nemo.collections.asr.models import ASRModel
 
 model = ASRModel.from_pretrained(model_name="nvidia/canary-1b-v2")
 
@@ -22,7 +23,7 @@ gradio = gradio.Interface(
     fn=transcribe,
     inputs=gradio.Audio(label="Select an audio", sources=["upload"], type="filepath"),
     outputs=gradio.Textbox(label="Transcription", lines=3, max_lines=50),
-    title="Audio to text",
+    title="Audio to text with nvidia model",
     description="Transcribe audio"
 )
 gradio.launch()
